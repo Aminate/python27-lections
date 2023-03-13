@@ -236,18 +236,104 @@
 #СОЗДАНИЕ КЛАССА Car
 
 
-class Car:
-#тут интересное то что я хочу чтобы при каждом добавлении к машине,был счечик который добавляет 1(количество обьектов)
-    car_count = 0
+# class Car:
+# #тут интересное то что я хочу чтобы при каждом добавлении к машине,был счечик который добавляет 1(количество обьектов)
+#     car_count = 0
 
 
-    def __init__(self):
-        Car.car_count += 1
+#     def __init__(self):
+#         Car.car_count += 1
 
-car1 = Car()
-print(Car.car_count)
- #1 тут у нас сработал счечик
-car2 = Car()
-print(Car.car_count) #2
+# car1 = Car()
+# print(Car.car_count)
+#  #1 тут у нас сработал счечик
+# car2 = Car()
+# print(Car.car_count) #2
 #и так каждый раз добавляется новая машина
 
+
+
+#TASK
+
+#1
+# class Song:
+#     def __init__(self, title, author, year):
+#         self.title = title
+#         self.author = author
+#         self.year = year
+
+#     def show_title(self):
+#         return(f'Название этой песни {self.title}')
+
+#     def show_author(self):
+#         return(f'Автор этой песни{self.author}')
+
+#     def show_year(self):
+#         return(f'Эта песня вышла в {self.year} году')
+
+# song =Song("Happier than ever", "Billie Elish", 2021)
+# print(song.show_title())
+# print(song.show_author())
+# print(song.show_year())
+
+
+#2
+
+
+# class Circle: 
+#     color = 'Синий' 
+#     pi = 3.14 
+#     def __init__(self, radius): 
+#         self.radius = radius 
+#     def get_area(self): 
+#             return self.pi*(self.radius**2) 
+# circle = Circle(radius = 13) 
+# circle.color = 'желтый' 
+# print(circle.color) 
+# print(circle.get_area())
+
+
+
+#3 (не окончен)
+
+# class BankAccount: 
+#     balance = 0 
+#     def withdraw(self, amount): 
+#      self.balance -= amount 
+#      print(f'Ваш баланс:{self.balance} сом') 
+#     def deposit(self,amount): 
+#        self.balance += amount 
+#        print(f'Ваш баланс:{self.balance} сом') 
+# account = BankAccount() 
+# print(account.deposit(1000)) 
+# print(account.withdraw(500))
+
+
+#4
+
+# class Taxi: 
+#     def __init__(self, name, cost, cost_km): 
+#         self.name = name 
+#         self.cost = cost 
+#         self.cost_km = cost_km 
+#     def get_total_cost(self, km): 
+#         self.cost = self.cost_km * km + self.cost 
+#         return f'Такси {self.name}, стоимость поездки: {self.cost} сом' 
+# taxi1 = Taxi(name='Namba',cost=29, cost_km=15) 
+# taxi2 = Taxi(name='Yandex',cost=25, cost_km=17) 
+# taxi3 = Taxi(name='Jorgo',cost=28, cost_km=15) 
+# print(taxi1.get_total_cost(10)) 
+# print(taxi2.get_total_cost(6)) 
+# print(taxi3.get_total_cost(14))
+
+
+#5
+# class Phone: 
+#     def __init__(self, name, last_name, phone) -> None: 
+#         self.name = name 
+#         self.last_name = last_name 
+#         self.phone = phone 
+#     def get_info(self): 
+#         print(f'Контакт: {self.name} {self.last_name}, телефон: {self.phone}') 
+# contact = Phone('John', 'Snow','996707707707') 
+# contact.get_info()
