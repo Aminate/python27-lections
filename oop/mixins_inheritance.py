@@ -213,3 +213,204 @@
 
 
 
+# Task 1
+# class Auto: 
+#     def ride(self): 
+#         print('Riding on a ground') 
+# class Boat: 
+#     def swim(self): 
+#         print( 'Floating on water') 
+# class Amphibian(Auto,Boat): 
+#     pass 
+# obj = Amphibian() 
+# obj.ride() 
+# obj.swim()
+
+#Task 2
+# class RadioMixin: 
+#     def play_music(self): 
+#         class_ = 'tittle' 
+#         print(f'Песня называется {class_}') 
+# class Auto: 
+#     pass 
+# class Boat(RadioMixin): 
+#     pass 
+# class Amphibian(Auto, Boat): 
+#     pass 
+# auto = Auto() 
+# boat = Boat() 
+# obj = Amphibian() 
+# obj.play_music()
+
+#Task 3
+# class Clock:  (не закончен)
+#     def current_time(self): 
+#         print('17:10:41') 
+# class Alarm: 
+#     def on(self): 
+#         print('08:00:00')
+#     def off(self): 
+#         print('09:00:00') 
+# class AlarmClock(Clock, Alarm): 
+#     def alarm_on(self): 
+#         print('Будильник включён') 
+# clock = AlarmClock() 
+# clock.current_time() 
+# clock.alarm_on()
+
+# Task 4
+# from abc import ABC, abstractmethod 
+# class Coder(ABC): 
+#     count_code_time = 0 
+#     @abstractmethod 
+#     def get_info(self): 
+#         pass 
+#     @abstractmethod 
+#     def coding(self, hours): 
+#         pass 
+# class Backend(Coder): 
+#     def __init__(self, experience, languages_backend): 
+#         self.experience = experience 
+#         self.languages_backend = languages_backend 
+#     def get_info(self): 
+#         return f"{self.languages_backend} разработчик, уровень: {self.experience}, потрачено {self.count_code_time} часов на программирование" 
+#     def coding(self, hours): 
+#         self.count_code_time += hours 
+# class Frontend(Coder): 
+#     def __init__(self, experience, languages_frontend): 
+#         self.experience = experience 
+#         self.languages_frontend = languages_frontend 
+#     def get_info(self): return f"{self.languages_frontend} разработчик, уровень: {self.experience}, потрачено {self.count_code_time} часов на программирование" 
+#     def coding(self, hours): 
+#         self.count_code_time += hours 
+# class Fullstack(Backend, Frontend): 
+#     pass 
+# a = Backend('Junior', 'Python') 
+# b = Frontend('Middle', 'JavaScript') 
+# c = Fullstack('Senior', 'Python and JS') 
+# a.coding(12) 
+# b.coding(45) 
+# c.coding(17) 
+# print(a.get_info()) 
+# print(b.get_info()) 
+# print(c.get_info())
+
+
+#Task 5
+# class Square: 
+#     def __init__(self, side) -> None: 
+#         self.side = side 
+#     def get_area(self): 
+#         return self.side * self.side 
+# class Triangle: 
+#     def __init__(self, height, base) -> None: 
+#         self.height = height 
+#         self.base = base 
+#     def get_area(self): 
+#         return int(0.5*self.base*self.height) 
+# class Pyramid(Triangle, Square): 
+#     def __init__(self, height, base) -> None: 
+#         super().__init__(height, base) 
+#     def get_volume(self): 
+#         return int(1/3*self.base**2*self.height) 
+# obj = Square(3) 
+# print(obj.get_area()) 
+# obj2 = Triangle(3,5) 
+# print(obj2.get_area()) 
+# obj3 = Pyramid(10,10) 
+# print(obj3.get_volume())
+
+#Task 6
+# import datetime 
+# class CreateMixin: 
+#     def create(self, key, todo): 
+#         if key in self.todos.keys(): 
+#             return 'Задача под таким ключём уже существует' 
+#         self.todos[key] = todo 
+#         return self.todos 
+# class DeleteMixin: 
+#     def delete(self, key): 
+#         delete_ = self.todos.pop(key, 'нет такого ключа') if 'нет такого ключа' == delete_: return delete_ 
+#         return delete_ 
+# class UpdateMixin: 
+#     def update(self, key, new_value): 
+#         self.todos[key] = new_value 
+#         return self.todos 
+# class ReadMixin: 
+#     def read(self): 
+#         res = [x for x in self.todos.items()] 
+#         return sorted(res) 
+# class ToDo(CreateMixin, DeleteMixin, UpdateMixin, ReadMixin): 
+#     todos = {} 
+#     def set_deadline(self, deadline): 
+# time_ = datetime.datetime.now().strftime('%d/%m/%Y') 
+# deadline = deadline.split('/') 
+# time_ = time_.split('/') 
+# deadline = list(map(int, deadline)) 
+# time_ = list(map(int, time_)) 
+# time_ = sum((time_[0], time_[1]*30, time_[2]*365)) 
+# deadline = datetime.date(deadline[2], deadline[1], deadline[0]) 
+# time_ = datetime.date.today() 
+#         return (deadline - time_).days 
+# task = ToDo() 
+# print(task.set_deadline('31/12/2022')) 
+# print(task.create(1, 'todo')) 
+# print(task.delete(3)) 
+# print(task.update(1, 'todo')) 
+# print(task.read()) 
+# print(task.create(1, 'Do housework')) 
+# print(task.create(1, 'Do housework')) 
+# print(task.create(2, 'Go for a walk')) 
+# print(task.update(1, 'Do homework')) 
+# print(task.delete(2)) 
+# print(task.read())
+# print(task.set_deadline('31/12/2021'))
+
+# Task 7
+# class ExtensionMixin: 
+#     def add_extension(self, extension): 
+#         self.extensions.append(extension) 
+#         return f'Добавлено новое расширение {extension} для игры {self.name}' 
+#     def remove_extension(self, del_extension): 
+#         if del_extension in self.extensions: 
+#             self.extensions.remove(del_extension) 
+#         return f'{del_extension} был отключен от {self.name}' 
+# return 'Такого расширения нет в списке.' 
+# class Game(ExtensionMixin): 
+#     def __init__(self, type, name): 
+#         self.type = type 
+#         self.name = name 
+#         self.extensions = [] 
+#     def get_description(self, description): 
+#         return f'{self.name} это {description}' 
+#     def get_extensions(self): 
+#         res = ' '.join(self.extensions) 
+#         return res 
+#     if res 
+#     else:
+#         'Нет подключенных расширений'
+
+
+# Task 8
+# class FlyMixin: 
+#     def fly(self): 
+#         print('я могу летать') 
+# class WalkMixin: 
+#     def walk(self): 
+#         print('я могу ходить') 
+# class SwimMixin: 
+#     def swim(self): 
+#         print('я могу плавать') 
+# class Human(WalkMixin, SwimMixin): 
+#     name = 'человек' 
+#     def talk(self): 
+#         print('я могу говорить') 
+# class Fish(SwimMixin): 
+#     name = 'рыба' 
+# class Exocoetidae(SwimMixin, FlyMixin): 
+#     name = 'летучая рыба' 
+# class Duck(SwimMixin, WalkMixin, FlyMixin): 
+#     name = 'утка'
+
+
+ 
