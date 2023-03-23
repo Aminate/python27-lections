@@ -608,28 +608,63 @@
 
 # print(list1)
 #['Amina', 1, 2, 3, 4, 5]
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 # student3 = Python()
 # student2.coding()
 # student1.coding()
 # print(Python.students_count)
 # print(JavaScript.students_count)
 # print(Languages.students_count)
+
+# Task 3
+# class MyString(str): 
+#     def __init__(self, stroka1): 
+#         self.stroka1 = stroka1 
+#     def append(self, stroka2): 
+#         self.stroka2 = stroka2 
+#         self.stroka1 = self.stroka1 + self.stroka2 
+#         return self.stroka1 
+#     def pop(self): 
+#         last_w = self.stroka1[-1] 
+#         self.stroka1 = self.stroka1[:-1] 
+#         return last_w 
+#     def __str__(self) -> str: 
+#         return self.stroka1 
+# example = MyString('String') 
+# example.append('hello') 
+# print(example.pop()) 
+# print(example)
+
+# Task 5
+# class Person: 
+#     def __init__(self,name, age): 
+#         self.name = name 
+#         self.age = age 
+#     def display(self): 
+#         return f'name:{self.name}, age:{self.age}' 
+# class Student(Person): 
+#     def __init__(self, name, age, faculty): 
+#         super().__init__(name, age) 
+#         self.faculty = faculty 
+#     def display_student(self): 
+#         info = super().display() 
+#         info += f', faculty:{self.faculty}' 
+#         return info 
+# obj_student = Student('Rick', 21, 'science') 
+# print(obj_student)
+
+
+
+# class ContactList(list): 
+#     def __init__(self, list_): 
+#         self.list_ = list_ 
+#     def search_by_name(self, all_contacts): 
+#         all_contacts = ()
+#         # for i in self.list_: 
+#         #     if name in i: a.append(i) 
+#         #     return a 
+
+# all_contacts = ContactList(['Ivan', 'Maris', 'Olga', 'Ivan Olya', 'Olya Ivan', 'ivan']) 
+# print(all_contacts.search_by_name('Olya'))
+
+
 

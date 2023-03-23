@@ -364,8 +364,44 @@
 # print(task.update(1, 'Do homework')) 
 # print(task.delete(2)) 
 # print(task.read())
-# print(task.set_deadline('31/12/2021'))
+# print(task.set_deadline('31/12/2021')
 
+
+# правельное решение
+# from datetime import datetime 
+# class CreateMixin: 
+#     def create(self, todo, key): 
+#         if key in self.todos: 
+#             return 'Задача под таким ключом уже существует' 
+#         self.todos[key] = todo 
+#         return self.todos 
+# class DeleteMixin: 
+#     def delete(self, key): 
+#         delete_ = self.todos.pop(key, None) 
+#         if not delete_:
+#             return 'нет такого ключа'
+#         return delete_
+
+# class UpdateMixin: 
+#     def update(self, key, new_value): 
+#         self.todos[key] = new_value 
+#         return self.todos 
+
+# class ReadMixin: 
+#     def read(self): 
+#         return sorted(self.todos.items())
+
+# class ToDo(CreateMixin, DeleteMixin, UpdateMixin, ReadMixin): 
+#     todos = {} 
+
+#     def set_deadline(self, deadline): 
+#         day, month, year = deadline.split("/")
+#         datetime_deadline = datetime(int(year), int(month), int(day))
+#         datetime_now = datetime.now()
+#         return (datetime_deadline - datetime_now).days + 1
+
+# task = ToDo() 
+# print(task.set_deadline('31/12/2022'))
 # Task 7
 # class ExtensionMixin: 
 #     def add_extension(self, extension): 
@@ -391,6 +427,67 @@
 #         'Нет подключенных расширений'
 
 
+# class ExtensionMixin: 
+#     def add_extension(self, extension): 
+#         self.extensions.append(extension) 
+#         return f'Добавлено новое расширение {extension} для игры {self.name}' 
+#     def remove_extension(self, del_extension): 
+#         if del_extension in self.extensions: self.extensions.remove(del_extension) 
+#         return f'{del_extension} был отключен от {self.name}' 
+#         return 'Такого расширения нет в списке.' 
+# class Game(ExtensionMixin): 
+#     def __init__(self, type, name): 
+#         self.type = type 
+#         self.name = name 
+#         self.extensions = [] 
+#     def get_description(self, description): 
+#         return f'{self.name} это {description}' 
+#     def get_extensions(self): 
+#         res = ' '.join(self.extensions) 
+#         return res if res else 'Нет подключенных расширений'
+
+
+
+# правельное решение:
+
+# class ExtensionMixin: 
+#     def add_extension(self, extension_name): 
+#         self.extensions.append(extension_name) 
+#         return f'Добавлено новое расширение {extension_name} для игры {self.name}.'
+#     def remove_extension(self, extension_name): 
+#         if extension_name in self.extensions: 
+#             self.extensions.remove(extension_name) 
+#             return f'{extension_name} был отключен от {self.name}' 
+#         else:
+#             return 'Такого расширения нет в списке.' 
+# class Game(ExtensionMixin): 
+#     def __init__(self, game_type, name): 
+#         self.type = game_type 
+#         self.name = name 
+#         self.extensions = [] 
+#     def get_description(self, description): 
+#         return f"{self.name} это {description}" 
+#     def get_extensions(self): 
+#         if len(self.extensions) == 0: 
+#             return "Нет подключенных расширений" 
+#         else: 
+#             return self.extensions 
+# game = Game('CS_GO', 'Minencraft') 
+# print(game.get_description('инди-игра в жанре песочницы с элементами выживания и открытым миром')) 
+# print(game.add_extension('Multiverse-Core')) 
+# print(game.add_extension('Multiverse-Core1')) 
+# game.extensions 
+# print(game.get_extensions()) 
+# print(game.remove_extension('Multiverse-Core')) 
+# print(game.get_extensions())
+
+
+
+
+
+
+
+
 # Task 8
 # class FlyMixin: 
 #     def fly(self): 
@@ -413,4 +510,27 @@
 #     name = 'утка'
 
 
- 
+# Task 3
+# from datetime import datetime
+# # class Clock:
+# #     def current_time(self):
+# print(datetime.now().strftime("%H:%M:%S")) #11:39:53
+
+# from datetime import datetime
+# class Clock:
+#     def current_time(self):
+#         print(datetime.now().strftime("%H:%M:%S"))
+
+# class Alarm:
+#     def on(self):
+#         print("Будильник включен")
+#     def off(self):
+#         print("Будильник выключен")
+
+# class AlarmClock(Clock, Alarm):
+#     def alarm_on(self):
+#         self.on()
+
+# clock = AlarmClock()
+# clock.current_time() 
+# clock.alarm_on() 

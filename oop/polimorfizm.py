@@ -383,8 +383,8 @@
 # dol = Dollar('Alaska', '$') 
 # eu = Euro('France', '€') 
 
-# print(dol.exchange (100)) 
-# print(eu.exchange (80))
+# print(dol.exchange(100)) 
+# print(eu.exchange(80))
 
 #Task 8
 # class Planet: 

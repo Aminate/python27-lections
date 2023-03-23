@@ -337,3 +337,100 @@
 #         print(f'Контакт: {self.name} {self.last_name}, телефон: {self.phone}') 
 # contact = Phone('John', 'Snow','996707707707') 
 # contact.get_info()
+
+# class Product:
+#     base_price = 20000
+#     def __init__(self, model, year, color) -> None:
+#         self.model = model
+#         self.year = year
+#         self.color = color
+
+#     def has_garantiya(self, year):
+#         if year - self.year > 2:
+#             return "Ваша гарантия истекла"
+#         else:
+#             return "Гарантия действительна"
+
+#     @classmethod
+#     def change_price(cls,rate):
+#         cls.base_price += cls.base_price * rate / 100
+#         return cls.base_price
+
+# obj = Product('A218', 2008, 'red') 
+# obj.change_price(2) 
+# print(obj.has_garantiya(2015)) 
+# print(obj.base_price) 
+
+
+
+#   Task 3
+
+# class BankAccount: 
+#     balance = 0 
+#     def withdraw(self, amount): 
+#         self.balance -= amount 
+#         print(f'Ваш баланс: {self.balance} сом') 
+#     def deposit(self,amount): 
+#         self.balance += amount 
+#         print(f'Ваш баланс: {self.balance} сом') 
+# account = BankAccount() 
+# print(account.deposit(1000)) 
+# print(account.withdraw(500))
+
+# Task 6
+
+# class Salary: 
+#     percent = 8 
+#     def __init__(self, salary, experience): 
+#         self.salary = salary 
+#         self.experience = experience 
+#     def count_percent(self): 
+#         return self.salary * self.percent / 100 * self.experience 
+# obj = Salary(1000, 8) 
+# print(obj.count_percent())
+
+# Task 7
+# import datetime 
+# class Nobel(): 
+#     def __init__(self, category, year, winner) -> None: 
+#         self.category = category 
+#         self.year = year 
+#         self.winner = winner 
+#     def get_year(self): 
+#         a = str(datetime.date.today()).split('-')[0]
+#         res = int(a) - self.year 
+#         return f'выиграл {res} лет назад' 
+# winner1 = Nobel("Литература", 1970, "Пабло Неруда") 
+# print(winner1.category, winner1.year, winner1.winner) 
+# print(winner1.get_year())
+# winner2 = Nobel("Литература", 1993, "Кэндзабуро Оэ") 
+# print(winner2.category, winner2.year, winner2.winner) 
+# print(winner2.get_year())
+
+#(решение от Дины)stupit madafucka
+
+# import datetime
+# now = datetime.datetime.now()
+# now2 = str(now).split()[0].split('-')[0]
+# date_now = int(now2)
+
+# class Nobel:
+#     def init(self, category, year, winner):
+#         self.category = category 
+#         self.year = year
+#         self.winner = winner
+#     def get_year(self):
+#         return f'выиграл {date_now - self.year} лет назад'
+# winner1 = Nobel("Литература", 1971, "Пабло Неруда") 
+# print(winner1.category, winner1.year, winner1.winner) 
+# print(winner1.get_year())
+# winner2 = Nobel("Литература", 1994, "Кэндзабуро Оэ") 
+# print(winner2.category, winner2.year, winner2.winner) 
+# print(winner2.get_year())
+
+
+
+# Литература 1971 Пабло Неруда
+# выиграл 51 лет назад 
+# Литература 1994 Кэндзабуро Оэ 
+# выиграл 28 лет назад
