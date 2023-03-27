@@ -668,3 +668,65 @@
 
 
 
+
+# Task 5
+# class Person: 
+#     def __init__(self,name, age): 
+#         self.name = name 
+#         self.age = age 
+#     def display(self): 
+#         return f'name:{self.name}, age:{self.age}' 
+# class Student(Person): 
+#     def __init__(self, name, age, faculty): 
+#         super().__init__(name, age) 
+#         self.faculty = faculty 
+#     def display_student(self): 
+#         info = super().display() 
+#         info += f', faculty:{self.faculty}' 
+#         return info 
+# obj_student = Student('Rick', 21, 'science') 
+# print(obj_student.display()) 
+# print(obj_student.display_student())
+
+
+# Task 6
+# class ContactList(list): 
+#     def __init__(self, list_): 
+#         self.list_ = list_ 
+#     def search_by_name(self, name): 
+#         a = [] 
+#         for i in self.list_: 
+#             if name in i: a.append(i) 
+#             return a 
+# all_contacts = ContactList(['Ivan', 'Maris', 'Olga', 'Ivan Olya', 'Olya Ivan', 'ivan']) 
+# print(all_contacts.search_by_name('Olya'))
+
+
+
+# Task 8
+# class CustomError(Exception): 
+#     def __init__(self, message, name): 
+#         self.message = message 
+#         self.name = name 
+# capitals_error = CustomError('ТОЛЬКО БОЛЬШИЕ БУКВЫ РАЗРЕШЕНЫ В ЭТОМ КОДЕ') 
+# def check_letters(str_): 
+#     if str_.islower(): 
+#         raise capitals_error 
+#     else: 
+#         return f'ВСЕ ОТЛИЧНО! {str_}' 
+# print(check_letters("HELLO")) 
+# print(check_letters("hello"))
+
+
+class CustomError(Exception): 
+    def __init__(self, message): 
+        self.message = message 
+capitals_error = CustomError('ТОЛЬКО БОЛЬШИЕ БУКВЫ РАЗРЕШЕНЫ В ЭТОМ КОДЕ') 
+def check_letters(str_): 
+    if str_.islower(): 
+        raise capitals_error 
+    else: 
+        return f'ВСЕ ОТЛИЧНО! {str_}' 
+    
+print(check_letters("HELLO")) 
+print(check_letters("hello"))

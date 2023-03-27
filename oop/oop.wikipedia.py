@@ -521,7 +521,7 @@
 #             if x == 'stop':
 #                 break
 #             elif not str_x.isdigit():
-#                 print ('вы ввели не число ' * 3 )
+#                 print ('вы ввели не число')
 #             else:
 #                 num = int(x)
 #                 if num < 40:
@@ -530,7 +530,7 @@
 #                     summaMassiv1 = int(num) * int(num)
 #                     print ( summaMassiv1 )
 #                     print ( summaMassiv1 )
-#                     break 
+                    
 
 # obj = MyClass()
 
@@ -607,4 +607,24 @@
           
 
 # self.name = Python27("Sam", "Baker")     
+
+
+
+# class WalkMixin:
+#     def walk(self):
+#         print("обьект ходить")
+
+# class WalkingPerson(WalkMixin):
+#     pass
+
+# obj = WalkMixin()
+# obj.walk()
+
+
+
+#\l - показывает список база данных
+# psql postgres - вход 
+# create database (название база данных); - создание база данных
+# drop database (название база данных);- 
+# \c - коннект с другой база данных
 

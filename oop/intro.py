@@ -434,3 +434,66 @@
 # выиграл 51 лет назад 
 # Литература 1994 Кэндзабуро Оэ 
 # выиграл 28 лет назад
+
+
+
+
+# Task 8
+# class Password: 
+#     def __init__(self, password): 
+#         self.password = password 
+#     def __str__(self) -> str:#fcfghjk 
+#         return '*' * len(self.password) 
+#     def validate(self): 
+#         if not len(self.password) == 8 and len(self.password) < 15: 
+#             return f'Password should be longer than 8, and less than 15' 
+#         if not any(map(lambda i: i.isdigit(), self.password)): 
+#             return f'Password should contain numbers too' 
+#         if not any(map(lambda i: i.isalpha(), self.password)): 
+#             return f'Password should contain letters as well' 
+#         if not any(map(lambda i: i in ['@', '#', '&', '$', '%', '!', '~', '*'], self.password)): 
+#             return f'Your password should have some symbols' 
+#         return f'Ваш пароль сохранен.' 
+# password = Password('sanem23@') 
+# print(password.validate()) 
+# print(password)
+
+
+# Task 9
+# class Math: 
+#     def __init__(self, value): 
+#         self.value = value 
+#     def get_factorial(self): 
+#         factorial = 1 
+#         a = self.value
+#         while a > 1: 
+#             factorial *= a 
+#             a -= 1 
+#         print(factorial) 
+#     def get_sum(self): 
+#         x = sum([int(y) for y in str(self.value)]) 
+#         print(x) 
+#     def get_mul_table(self): 
+#         for x in range(0,11): 
+#             print(f'{self.value} x {x} = {self.value * x}') 
+# fact = Math(12) 
+# fact.get_factorial() 
+# fact.get_sum() 
+# fact.get_mul_table()
+
+# Task 10
+class ToDo: 
+    def __init__(self,string): 
+        self.todo=string 
+instances=dict() 
+def give_priority(self,priority): 
+    ToDo.instances[priority]=self.todo 
+def list_of_tasks(self): 
+        return sorted(ToDo.instances.items()) 
+var1=ToDo('ckelele') 
+var1.give_priority(2) 
+var2=ToDo('lelelele') 
+var2.give_priority(3) 
+var3=ToDo('HIOHOHO') 
+var3.give_priority(1) 
+print(var3.list_of_tasks())
