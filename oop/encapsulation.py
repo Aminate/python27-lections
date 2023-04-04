@@ -358,22 +358,22 @@
 
 
 # Task 10
-# class Game:
-#     __level = 0
-#     def __init__(self,name):
-#         self.name = name
+class Game:
+    __level = 0
+    def __init__(self,name):
+        self.name = name
 
-#     def play(self,hours):
-#         if hours > 2:
-#             self.__level += 1
+    def play(self,hours):
+        if hours > 2:
+            self.__level += 1
 
-#     def get_level(self):
-#         return self.__level 
-# game = Game("Nursultan")
-# print(game.get_level())
-# game.play(4)
-# game.play(3)
-# print(game.get_level())
+    def get_level(self):
+        return self.__level 
+game = Game("Nursultan")
+print(game.get_level())
+game.play(4)
+game.play(3)
+print(game.get_level())
 
 
 #Task 11

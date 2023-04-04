@@ -352,9 +352,9 @@
 # result = list(map(lambda x: x if '@gmail.com' in x else 'Not valid email', list_)) 
 # print(result)
 
-list_ = [-7, -2, 12, 32, 432, 23, 37, 11, 76, 0, -23, 45, -32, -56] 
-list1=list(filter(lambda x:x>0,list_)) 
-list2=list(filter(lambda x:not x>0,list_)) 
-res=list(zip(list1,list2)) 
-print(res)
+# list_ = [-7, -2, 12, 32, 432, 23, 37, 11, 76, 0, -23, 45, -32, -56] 
+# list1=list(filter(lambda x:x>0,list_)) 
+# list2=list(filter(lambda x:not x>0,list_)) 
+# res=list(zip(list1,list2)) 
+# print(res)
 

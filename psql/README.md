@@ -543,17 +543,80 @@ alter role (название бд) with superuser(мы дали права на)
 При использовании char или varchar рекомендуется: Если размеры записей данных столбцов постоянны, используйте char. Если размеры записей данных столбцов значительно изменяются, используйте varchar
 
 
--- shop=# SELECT * FROM product JOIN cart on product.id = cart.product_id
--- JOIN customer on customer.id = cart.customer_id;
---  id |   title   | price | id | customer_id | product_id | id |    name    
--- ----+-----------+-------+----+-------------+------------+----+------------
---   1 | product 1 |   340 |  1 |           1 |          1 |  1 | customer 1
---   2 | product 2 |   503 |  2 |           1 |          2 |  1 | customer 1
---   4 | product 4 |   236 |  3 |           1 |          4 |  1 | customer 1
---   3 | product 3 |   470 |  4 |           2 |          3 |  2 | customer 2
---   4 | product 4 |   236 |  5 |           3 |          4 |  3 | customer 3
---   5 | product 5 |   452 |  6 |           3 |          5 |  3 | customer 3
--- (6 rows)
+shop=# SELECT * FROM product JOIN cart on product.id = cart.product_id
+JOIN customer on customer.id = cart.customer_id;
+ id |   title   | price | id | customer_id | product_id | id |    name    
+----+-----------+-------+----+-------------+------------+----+------------
+  1 | product 1 |   340 |  1 |           1 |          1 |  1 | customer 1
+  2 | product 2 |   503 |  2 |           1 |          2 |  1 | customer 1
+  4 | product 4 |   236 |  3 |           1 |          4 |  1 | customer 1
+  3 | product 3 |   470 |  4 |           2 |          3 |  2 | customer 2
+  4 | product 4 |   236 |  5 |           3 |          4 |  3 | customer 3
+  5 | product 5 |   452 |  6 |           3 |          5 |  3 | customer 3
+(6 rows)
 
 
 -- корзина где хранятся продукты
+
+
+-- Task 1  (нахождение слово 'wordform' как часто он встречается)
+SELECT plaintext FROM wordform LIMIT 10;
+
+-- Task 2
+-- Найдите все слова, которые начинаются с буквы a(таблица wordform)
+SELECT plaintext FROM wordform WHERE plaintext ILIKE 'a%';
+
+-- Task 3
+-- Выведите название всех произведений, которые относятся к жанру p(таблица work).
+SELECT title, genretype FROM work WHERE genretype = 'p';
+
+-- Task 4
+--Найдите среднее количество параграфов в произведениях жанра t (таблица work).
+SELECT AVG(totalparagraphs) FROM work WHERE genretype = 't';
+
+-- Task 5
+-- Выведите названия всех произведений из таблицы work, в которых количество слов выше среднего.
+SELECT title FROM work WHERE totalwords > (SELECT AVG(totalwords) FROM work);
+
+-- Task 6
+ SELECT charname,speechcount,title FROM character_work,character,work; (не окончен)
+
+ -- Task 7
+ -- Выведите среднее количество реплик героев в произведении 'Romeo and Juliet'
+SELECT ROUND(avg(speechcount)), work.title FROM character JOIN character_work ON character.charid = character_work.charid JOIN work ON character_work.workid = work.workid WHERE work.title = 'Romeo and Juliet' GROUP BY work.title;
+
+-- Task 8
+--Выведите общее количество слов в каждой из секций в таблице paragraph.
+SELECT section, SUM(wordcount) as sum FROM paragraph GROUP BY section;
+
+
+-- Task 9
+--Выведите имя и количество реплик героев, у которых от 15 до 30 реплик (таблица character).
+SELECT charname, speechcount FROM CHARACTER WHERE speechcount BETWEEN 15 AND 30;
+
+-- Task 10
+--Выведите название и год написания всех произведений, которые были написаны в 17 веке (таблица work).
+select title, year from work where year between 1601 and 1699;
+
+-- Task 11
+--Выведите полные названия всех произведений, которые имеют в полном названии слово the (таблица work).
+--Поиск должен быть чувствителен к регистру(только для the с маленькими буквами).
+select longtitle from work where longtitle like '%the%';
+
+-- Task 12
+-- Выведите все уникальные секции в paragraph.
+select distinct section from paragraph;
+
+-- Task 13
+-- Для каждой главы выведите: chapterid, описание и название произведения, к которой относится данная глава (таблицы chapter и work).
+select chapterid, description, work.title from chapter JOIN work ON chapter.workid = work.workid;
+
+
+-- Task 14
+-- Для каждого параграфа выведите: номер параграфа, имя героя, и количество реплик героя (таблицы paragraph и character).
+select paragraphnum, character.charname, character.speechcount from paragraph join character on paragraph.charid = character.charid;
+
+-- Task 15
+-- Для каждого параграфа выведите: номер параграфа, название произведения и год выхода этого произведения (таблицы paragraph и work).
+select paragraphnum, title, work.year from paragraph join work on paragraph.workid = work.workid;
+
