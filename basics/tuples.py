@@ -29,3 +29,9 @@
 # tuple1 = ('hello', 'world', 105)
 # print(tuple1.index('hello')) # 0
 # print(tuple1.index('w')) # ValueError: tuple.index(x): x not in tuple
+
+def x(values):
+    values[0] = 1
+    v = [2,3,4]
+    x(v)
+    print(v)
