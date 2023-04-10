@@ -25,8 +25,8 @@ SECRET_KEY = 'django-insecure-knhtuwdlamas80mzubdy&5^$0^la1x1go_iqvmp2w7ik22-kfy
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', '.pythonanywhere.com']
-
+# ALLOWED_HOSTS = ['127.0.0.1', '.pythonanywhere.com']
+ALLOWED_HOSTS = ['*']
 
 # Application definition
 
@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'blog',
+    'account',
 ]
 
 MIDDLEWARE = [
@@ -128,7 +129,8 @@ STATIC_ROOT = BASE_DIR / 'static'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-class Django:
-    def __init__(self,) -> None:
-        pass
-    
+# class Django:
+#     def __init__(self,) -> None:
+#         pass
+
+AUTH_USER_MODEL = 'account.User'
